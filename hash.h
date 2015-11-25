@@ -20,7 +20,7 @@ class hash {
 
     private:
         // static allows you to define it in class?
-        static const int tableSize = 40;
+        static const int tableSize = 4;
 
         struct item {
             string name;

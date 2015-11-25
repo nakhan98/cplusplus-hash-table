@@ -34,12 +34,18 @@ int main(int argc, char ** argv) {
     //Hashy.PrintItemsInIndex(7);
     //Hashy.PrintItemsInIndex(3);
     
+    //Hashy.PrintTable();
+    Hashy.PrintItemsInIndex(0);
+    
     while (name != "exit") {
-        cout << "Search for ";
+        cout << "Remove ";
         cin >> name;
         if (name != "exit")
-            Hashy.FindDrink(name);
+            Hashy.RemoveItem(name);
     }
+
+    //Hashy.PrintTable();
+    Hashy.PrintItemsInIndex(0);
 
     return 0;
 }

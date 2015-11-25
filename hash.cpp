@@ -139,11 +139,39 @@ void hash::RemoveItem(string name) {
     // Case 1
     else if (HashTable[index]->name == name && HashTable[index]->next ==
             NULL) {
-        HashTable[index]->name = "empty"
-        HashTable[index]->drink = "empty"
+        HashTable[index]->name = "empty";
+        HashTable[index]->drink = "empty";
+
+        cout << name << " was removed from the Hash Table" << endl;
     }
     // Case 2
-    else if (HashTable[index]->name == name && HashTable[index]->next !=
-            NULL) {
+    else if (HashTable[index]->name == name) {
+        delPtr = HashTable[index];
+        //HashTable[index] = HashTable[index]->next;
+        HashTable[index] = delPtr->next;
+        delete delPtr;
+        cout << name << " was removed from the Hash Table" << endl;
+    }
+    // Case 3
+    else {
+        P1 = HashTable[index]->next;
+        P2 = HashTable[index];
 
+        while (P1 != NULL && P1->name != name) {
+            P2 = P1;
+            P1 = P1->next;
+        }
+        // Case 3.1
+        if (P1 == NULL)
+            cout << name << "was not found in the Hash Table" << endl;
+        // Case 3.2
+        else {
+            delPtr = P1;
+            P1 = P1->next;
+            P2->next = P1;
+
+            delete delPtr;
+            cout << name << " was removed from the Hash Table" << endl;
+        }
+    }
 }
